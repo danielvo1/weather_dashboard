@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Weather Dashboard</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<div class="jumbotron jumbotron-fluid">
@@ -15,16 +16,16 @@
 
 
 
-		<div class= "container">	
+		<div class= "container-fluid">	
 			<div class = "row">
-				<div class="input-group col-5">
+				<div class="input-group col-4">
 				    <input type="text" id="cityInput" class="form-control col-8" placeholder="Please input a city." aria-label="Example text with button addon" aria-describedby="forecastBtn">
 				    <button class="btn btn-outline-secondary col-4" type="button" id="forecastBtn">Search</button>
 					</div>
 			</div>
-			<div class = "row" >
-				<div class="list-group col-5" id ="history">
-				</div>
+			<div class = "row">
+				<div class="list-group list-group-flush col-4" id ="history">
+					</div>
 
 		</div>
 

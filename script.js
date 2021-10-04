@@ -39,7 +39,8 @@ function findCoord() {
 		}
 	})
 	.then(function(data) {
-		console.log(data);
+		console.log(data.name);
+		city = data.name;
 		lat = data.coord.lat;
 		lon = data.coord.lon;
 		foreCast(lat,lon);
@@ -48,7 +49,7 @@ function findCoord() {
 
 function createList() {
 	$('#history').append(
-		'<button type="button" class="list-group-item list-group-item-action">' + city +'</button>')
+		'<button type="button" class="list-group-item list-group-item-action histoyBtn">' + city +'</button>')
 	console.log(city)
 }
 
