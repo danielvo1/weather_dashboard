@@ -16,18 +16,25 @@
 
 
 
-		<div class= "container-fluid">	
-			<div class = "row">
-				<div class="input-group col-4">
-				    <input type="text" id="cityInput" class="form-control col-8" placeholder="Please input a city." aria-label="Example text with button addon" aria-describedby="forecastBtn">
-				    <button class="btn btn-outline-secondary col-4" type="button" id="forecastBtn">Search</button>
-					</div>
+		<div class= "container">
+			<div class="row" style="padding: 10px;">
+			<div class="input-group col-4" style="margin: 15px;">
+				<div class="row">
+					<input type="text" id="cityInput" class="form-control col-8" placeholder="Please input a city." aria-label="Example text with button addon" aria-describedby="forecastBtn">
+					<button class="btn btn-outline-secondary col-4" type="button" id="forecastBtn">Search</button>
+				</div>
+			<div class="row col-10">
+				<ul class="list-group list-group-flush col-10" id ="history">
+				</ul>
+			 </div>
 			</div>
-			<div class = "row">
-				<div class="list-group list-group-flush col-4" id ="history">
-					</div>
 
+			<div class="card col-7" style ="padding-left: 15px">
+				<h1> Current Forecast </h1>	
+			</div>
+			</div>
 		</div>
+
 
 
 
