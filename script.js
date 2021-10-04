@@ -1,4 +1,6 @@
 var forecast = $("#forecastBtn");
+var history_list = $("");
+var city;
 
 // personal api key 
 var apiKey = "ff3dbe6a37f97b172f9338b03931d6bf";
@@ -15,11 +17,12 @@ function foreCast(lat,lon) {
 	.then(function(data) {
 		console.log("data", data);
 	});
+	createList();
 }
 
 function findCoord() {
 	//reassigns the input value to city variable
-	var city = $('#cityInput').val();
+	city = $('#cityInput').val();
 
 	//api url 
 	var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city +'&appid=' + apiKey;
@@ -41,6 +44,12 @@ function findCoord() {
 		lon = data.coord.lon;
 		foreCast(lat,lon);
 	});
+}
+
+function createList() {
+	$('#history').append(
+		'<button type="button" class="list-group-item list-group-item-action">' + city +'</button>')
+	console.log(city)
 }
 
 
