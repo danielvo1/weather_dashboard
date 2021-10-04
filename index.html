@@ -17,22 +17,41 @@
 
 
 		<div class= "container">
-			<div class="row" style="padding: 10px;">
-			<div class="input-group col-4" style="margin: 15px;">
-				<div class="row">
-					<input type="text" id="cityInput" class="form-control col-8" placeholder="Please input a city." aria-label="Example text with button addon" aria-describedby="forecastBtn">
-					<button class="btn btn-outline-secondary col-4" type="button" id="forecastBtn">Search</button>
-				</div>
-			<div class="row col-10">
-				<ul class="list-group list-group-flush col-10" id ="history">
-				</ul>
-			 </div>
+			<div class="card col-12" style ="padding-left: 15px;">
+				<h1 id="forecastIcon"> Today's Forecast:  <img id="wicon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather icon"> </h1>	
+				<h3 id="name">City Name: <span id="city_name"> </h2>
+				<p id="temp">Temperature: <span id="temperature_num"> </p>
+				<p id="wind">Wind Speed: <span id="wind_num"> </p>
+				<p id="uvi">UVI: <span id="uvi_num"> </p>
+				<p id="humidity"> Humidity: <span id="humidity_num"> </p>
 			</div>
 
-			<div class="card col-7" style ="padding-left: 15px">
-				<h1> Current Forecast </h1>	
-			</div>
-			</div>
+			<div class="row" >
+
+				<div class="input-group col-4" style="margin: 15px;">
+					<div class="row">
+						<input type="text" id="cityInput" class="form-control col-8" placeholder="Please input a city." aria-label="Example text with button addon" aria-describedby="forecastBtn">
+						<button class="btn btn-outline-secondary col-4" type="button" id="forecastBtn">Search</button>
+					</div>
+				
+				<div class="row col-8">
+					<ul class="list-group list-group-flush col-10" id ="history">
+					</ul> 
+				 </div>		
+				</div>
+
+				<div class="col-7">
+					<!-- <div class="card col">
+					</div>
+					<div class="card col">
+					</div>
+					<div class="card col">
+					</div>
+					<div class="card col">
+					</div>
+					<div class="card col">
+					</div> -->
+				</div>
 		</div>
 
 
