@@ -6,6 +6,10 @@ var city;
 // personal api key 
 var apiKey = "ff3dbe6a37f97b172f9338b03931d6bf";
 
+//date today 
+today = new Date().toLocaleDateString();
+console.log(today);
+$("#date").text(today);
 
 //this is where we get all the data we want
 function current(lat,lon) {
@@ -32,6 +36,14 @@ function current(lat,lon) {
 		$('#uvi_num').text(cur_uvi);
 		$('#humidity_num').text(cur_humidity + '%');
 		$('#wicon').attr('src', iconKey);
+
+		if (cur_uvi < 2) {
+			$('#uvi_num').css({'background-color':'green'});
+		} else if (cur_uvi > 2 && cur_uvi < 7) {
+			$('#uvi_num').css({'background-color':'yellow'});
+		} else { 
+			$('#uvi_num').css({'background-color':'red'});
+		}
 
 		foreCast(data.daily);
 
@@ -115,6 +127,11 @@ function foreCast(data) {
 		temp.text(temp_num + '°F');
 		hum.text(hum_num + '%');
 
+		var result = new Date();
+		console.log(i);
+		result.setDate(result.getDate() + (i+ 1));
+		console.log(result);
+		$('#date' + i).text(result.toLocaleDateString());
 
 		
 	}
