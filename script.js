@@ -35,6 +35,8 @@ function current(lat,lon) {
 		$('#humidity_num').text(cur_humidity + '%');
 		$('#wicon').attr('src', iconKey);
 
+		foreCast(data.daily);
+
 	});
 	createList(lat, lon);
 }
@@ -86,6 +88,16 @@ function load() {
 	city = this.id
 	var coordinates = JSON.parse(localStorage.getItem(this.id));
 	current(coordinates[0], coordinates[1]);
+}
+
+//loads in the daily forecast data into the cards 
+function foreCast(data) {
+	for (let i = 0; i < 5; i++) {
+		var icon = data[i].weather[0].icon;
+		var iconSrc = "https://openweathermap.org/img/w/" + icon + ".png";
+		$('#wicon' + i).attr('src', iconSrc);
+	}
+	
 }
 
 forecast.click(findCoord);
