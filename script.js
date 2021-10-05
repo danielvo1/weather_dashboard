@@ -17,8 +17,6 @@ function current(lat,lon) {
 		return response.json();
 	})
 	.then(function(data) {
-
-		console.log(data.daily);
 		var cur = data.current;  
 		var cur_name = city;
 		var cur_uvi = cur.uvi; // current day uvi 
@@ -38,6 +36,7 @@ function current(lat,lon) {
 		foreCast(data.daily);
 
 	});
+
 	createList(lat, lon);
 }
 
@@ -75,18 +74,30 @@ function findCoord() {
 //creates a list of buttons that correspond to the user's click
 function createList(lat, lon) {
 	var city_ns = city.replace(/ /g,'');
-	$('#history').append(
-		'<button type="button" class="list-group-item list-group-item-action histoyBtn" id="'+ city_ns +'">' + city +'</button>')
-	$(document).on('click', "#" + city_ns, load);
-	localStorage.setItem(city, '['+ lat + ',' + lon + ']' );
+	console.log(city_ns);
+	console.log($("#Oakland").attr("id"));
+
+	if (!$("#" + city_ns).attr('id')) {
+		$('#history').append(
+			'<button type="button" class="list-group-item list-group-item-action histoyBtn" id="'+ city_ns + '">' + city +'</button>');
+			localStorage.setItem(city_ns, '['+ lat + ',' + lon + ']' );
+			$(document).on('click', "#"+city_ns, load);
+		
+	} else {
+		return;
+	}
+	
 
 };
 
 
 //loads the old data from local storage
 function load() {
-	city = this.id
+	console.log(this.id);
+	city = this.id;
+	console.log('city', city);
 	var coordinates = JSON.parse(localStorage.getItem(this.id));
+	console.log(coordinates);
 	current(coordinates[0], coordinates[1]);
 }
 
@@ -95,7 +106,17 @@ function foreCast(data) {
 	for (let i = 0; i < 5; i++) {
 		var icon = data[i].weather[0].icon;
 		var iconSrc = "https://openweathermap.org/img/w/" + icon + ".png";
+		var temp = $('#temp' + i);
+		var hum = $('#hum' + i);
+		var hum_num = data[i].humidity;
+		var temp_num = data[i].temp.day;
+
 		$('#wicon' + i).attr('src', iconSrc);
+		temp.text(temp_num + '°F');
+		hum.text(hum_num + '%');
+
+
+		
 	}
 	
 }
